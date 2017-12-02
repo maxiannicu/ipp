@@ -32,9 +32,9 @@ public class CustomList<T> implements Enumerable<T> {
         return new Iterator();
     }
 
-    public static <U> CustomList<U> fromVArgs(U... args){
+    public static <U> CustomList<U> fromArray(U[] data){
         CustomList<U> uCustomList = new CustomList<>();
-        Arrays.stream(args)
+        Arrays.stream(data)
                 .forEach(uCustomList::add);
 
         return uCustomList;

@@ -1,11 +1,13 @@
 package com.maxiannicu.console;
 
 import com.maxiannicu.console.algorithms.*;
+import com.maxiannicu.console.collections.CustomList;
 import com.maxiannicu.printing.IntegerFormatter;
 import com.maxiannicu.printing.PrintFormatter;
 import com.maxiannicu.printing.StringFormatter;
 import com.maxiannicu.printing.TwoDigitFormatter;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class CalculatorCommand implements Command {
@@ -21,13 +23,13 @@ public class CalculatorCommand implements Command {
         System.out.print("Enter number of elements : ");
         int count = scanner.nextInt();
 
-        double[] elements = new double[count];
+        Double[] elements = new Double[count];
         for (int i = 0; i < count; i++) {
             System.out.printf("[%d] = ",i);
             elements[i] = scanner.nextDouble();
         }
 
-        double result = getAlgorithm().compute(elements);
+        double result = getAlgorithm().compute(CustomList.fromArray(elements));
         System.out.print("Result is ");
         formatter.print(result);
         System.out.println();
